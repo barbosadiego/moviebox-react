@@ -1,2 +1,56 @@
 @use '../Functions.scss' as f;
+@use '../Colors.scss' as c;
 
+.header {
+  color: c.$white;
+
+  nav {
+    height: 80px;
+    gap: 1rem;
+  }
+
+  &__input {
+    background-color: transparent;
+    width: 525px;
+    border: 2px solid c.$gray;
+    padding: 6px 10px;
+    border-radius: 6px;
+    outline: none;
+    color: c.$white;
+    @media screen and (max-width:900px){
+      max-width: 300px;
+    }
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+
+    &::placeholder {
+      color: c.$gray;
+    }
+  }
+
+  &__menu {
+    gap: 27px;
+
+    .btn{
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: c.$rose;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+
+      .line{
+        display: inline-block;
+        width: 19px;
+        height: 3px;
+        background-color: c.$white;
+        border-radius: 2px;
+      }
+    }
+  }
+}

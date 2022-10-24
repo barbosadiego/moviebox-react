@@ -38,4 +38,17 @@ main{
 .container{
   max-width: 1200px;
   margin: 0 auto;
+  @media screen and (max-width:1200px) {
+    padding: 0 1rem;
+  }
+}
+
+.flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.column{
+  flex-direction: column;
 }
