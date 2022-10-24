@@ -1,11 +1,13 @@
 import React from 'react';
 
-const Home = (props) => {
+import Poster from '../components/Poster';
+
+const Home = () => {
   return (
     <main>
-      <div className="container">
-        <h1>home</h1>
-      </div>
+      <section>
+        <Poster />
+      </section>
     </main>
   );
 };
