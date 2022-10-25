@@ -1,9 +1,20 @@
 import React, { useState, useEffect } from 'react';
+//swiper react
+import { Swiper, SwiperSlide } from 'swiper/react';
+//import requied modules
+import { Pagination, Navigation } from 'swiper';
 
+//swiper css
+import 'swiper/scss';
+import 'swiper/scss/pagination';
+import 'swiper/scss/navigation';
+
+//components
 import tomato from '../img/tomato-icon.png';
 import imdb from '../img/imdb.png';
 import play from '../img/Play.svg';
 
+//custom css
 import './Poster.scss';
 
 const baseURL = import.meta.env.VITE_API_BASE_URL;
@@ -24,32 +35,51 @@ const Poster = () => {
     fetchMovie();
   }, []);
 
+  function strLimit(str) {
+    return str.substring(0, 180) + '...';
+  }
+
   return (
     <>
-      {popularFilms.length > 0 &&
-        popularFilms.map((film) => (
-          <div key={film.id} className="film-poster">
-            <img src={`${imgURL}w1280${film.backdrop_path}`} alt={film.title} />
-            <div className="film-poster__info">
-              <h2>{film.title}</h2>
-              <div className="vote">
-                <div>
-                  <img className="icon" src={tomato} alt="vote average" />
-                  {film.vote_average}
-                </div>
-                <div>
-                  <img className="icon" src={imdb} alt="vote count" />
-                  {film.vote_count}
+      <Swiper
+        direction={'horizontal'}
+        pagination={{ dynamicBullets: true }}
+        modules={[Pagination, Navigation]}
+        className="mySwiper"
+        loop={false}
+        grabCursor={true}
+        autoplay={{ delay: 5000 }}
+      >
+        {popularFilms.length > 0 &&
+          popularFilms.map((film) => (
+            <SwiperSlide key={film.id}>
+              <div className="film-poster" style={{ height: '600px' }}>
+                <img
+                  src={`${imgURL}w1280${film.backdrop_path}`}
+                  alt={film.title}
+                />
+                <div className="film-poster__info">
+                  <h2>{film.title}</h2>
+                  <div className="vote">
+                    <div>
+                      <img className="icon" src={tomato} alt="vote average" />
+                      {film.vote_average}
+                    </div>
+                    <div>
+                      <img className="icon" src={imdb} alt="vote count" />
+                      {film.vote_count}
+                    </div>
+                  </div>
+                  <p>{strLimit(film.overview)}</p>
+                  <button className="btn">
+                    <img className="icon" src={play} alt="" />
+                    watch trailer
+                  </button>
                 </div>
               </div>
-              <p>{film.overview}</p>
-              <button className="btn">
-                <img className="icon" src={play} alt="" />
-                watch trailer
-              </button>
-            </div>
-          </div>
-        ))}
+            </SwiperSlide>
+          ))}
+      </Swiper>
     </>
   );
 };

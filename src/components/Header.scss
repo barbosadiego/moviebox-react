@@ -3,6 +3,11 @@
 
 .header {
   color: c.$white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
 
   nav {
     height: 80px;
@@ -17,7 +22,7 @@
     border-radius: 6px;
     outline: none;
     color: c.$white;
-    @media screen and (max-width:900px){
+    @media screen and (max-width: 900px) {
       max-width: 300px;
     }
     @media screen and (max-width: 768px) {
@@ -32,7 +37,7 @@
   &__menu {
     gap: 27px;
 
-    .btn{
+    .btn {
       width: 36px;
       height: 36px;
       border-radius: 50%;
@@ -44,7 +49,7 @@
       align-items: center;
       gap: 6px;
 
-      .line{
+      .line {
         display: inline-block;
         width: 19px;
         height: 3px;
