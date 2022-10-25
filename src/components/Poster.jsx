@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 //swiper react
 import { Swiper, SwiperSlide } from 'swiper/react';
 //import requied modules
-import { Pagination, Navigation } from 'swiper';
+import { Pagination, Navigation, Autoplay } from 'swiper';
 
 //swiper css
 import 'swiper/scss';
@@ -40,15 +40,15 @@ const Poster = () => {
   }
 
   return (
-    <>
+    <section>
       <Swiper
         direction={'horizontal'}
         pagination={{ dynamicBullets: true }}
-        modules={[Pagination, Navigation]}
+        modules={[Pagination, Navigation, Autoplay]}
         className="mySwiper"
         loop={false}
         grabCursor={true}
-        autoplay={{ delay: 5000 }}
+        // autoplay={{ delay: 5000 }}
       >
         {popularFilms.length > 0 &&
           popularFilms.map((film) => (
@@ -80,7 +80,7 @@ const Poster = () => {
             </SwiperSlide>
           ))}
       </Swiper>
-    </>
+    </section>
   );
 };
 

@@ -1,0 +1,48 @@
+@use '../Functions.scss' as f;
+@use '../Colors.scss' as c;
+
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: c.$rose;
+  color: c.$white;
+  height: 30px;
+  width: 30px;
+  padding: 1rem;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.8);
+
+  &::after {
+    height: inherit;
+    width: inherit;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transform: translateY(15%);
+  }
+}
+
+.slider-list {
+  margin: 70px 0;
+
+  .card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    h3 {
+      font-size: f.rem(18);
+    }
+
+    .vote {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+
+      & > div {
+        display: flex;
+        gap: 0.5rem;
+      }
+    }
+  }
+}

@@ -2,16 +2,17 @@ import React from 'react';
 
 //Components
 import Poster from '../components/Poster';
+import SliderList from '../components/SliderList';
 
-//Custom CSS
-import './Home.scss';
+//env
+const baseURL = import.meta.env.VITE_API_BASE_URL;
+const apiKey = import.meta.env.VITE_API_KEY;
 
 const Home = () => {
   return (
     <main>
-      <section className="poster-slider">
-        <Poster />
-      </section>
+      <Poster />
+      <SliderList url={`${baseURL}movie/top_rated?${apiKey}`} />
     </main>
   );
 };
