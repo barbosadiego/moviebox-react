@@ -23,26 +23,22 @@
 .slider-list {
   margin: 70px 0;
 
-  .card {
-    width: 100%;
+  .title {
     display: flex;
-    flex-direction: column;
-    gap: 6px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 44px;
 
-    h3 {
-      font-size: f.rem(18);
-    }
-
-    .vote {
+    .link {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 0.5rem;
-
-      & > div {
-        display: flex;
-        gap: 0.5rem;
-      }
+      color: c.$rose;
     }
+  }
+
+  span {
+    color: c.$gray-400;
   }
 }

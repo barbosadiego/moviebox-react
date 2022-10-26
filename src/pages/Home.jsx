@@ -12,7 +12,16 @@ const Home = () => {
   return (
     <main>
       <Poster />
-      <SliderList url={`${baseURL}movie/top_rated?${apiKey}`} />
+      <SliderList
+        url={`${baseURL}movie/top_rated?${apiKey}`}
+        section="featured-movie"
+        title="Featured Movie"
+      />
+      <SliderList
+        url={`${baseURL}movie/now_playing?${apiKey}`}
+        section="latest-movie"
+        title="New Arrival"
+      />
     </main>
   );
 };

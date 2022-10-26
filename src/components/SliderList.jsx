@@ -11,18 +11,20 @@ import 'swiper/scss/navigation';
 import { Navigation } from 'swiper';
 
 //components
-import tomato from '../img/tomato-icon.png';
-import imdb from '../img/imdb.png';
+
+import arrow from '../img/arrow-icon.svg';
 
 //css
 import './SliderList.scss';
+import { Link } from 'react-router-dom';
+import CardMovie from './CardMovie';
 
 //env
 const imgURL = import.meta.env.VITE_API_IMG;
 const baseURL = import.meta.env.VITE_API_BASE_URL;
 const apiKey = import.meta.env.VITE_API_KEY;
 
-const SliderList = ({ url }) => {
+const SliderList = ({ url, section, title }) => {
   const [films, setFilms] = useState([]);
 
   const getFilms = async (url) => {
@@ -35,9 +37,22 @@ const SliderList = ({ url }) => {
     getFilms(url);
   }, []);
 
+  function urlTitle(str) {
+    return str.toLowerCase().replace(' ', '-');
+  }
+
   return (
-    <section className="container">
+    <section className={`container ${section ? section : ''}`}>
       <div className="slider-list">
+        <div className="title">
+          <h1>{title}</h1>
+          <Link className="link" to={`/movies/${urlTitle(title)}`}>
+            See more{' '}
+            <span>
+              <img src={arrow} alt="" />
+            </span>
+          </Link>
+        </div>
         <Swiper
           slidesPerView={4}
           spaceBetween={80}
@@ -51,23 +66,7 @@ const SliderList = ({ url }) => {
           {films.length > 0 &&
             films.map((film) => (
               <SwiperSlide key={film.id}>
-                <div className="card">
-                  <div className="img">
-                    <img src={`${imgURL}w500/${film.poster_path}`} alt="" />
-                  </div>
-                  <span>{film.release_date.substring(0, 4)}</span>
-                  <h3>{film.title}</h3>
-                  <div className="vote">
-                    <div className="imdb">
-                      <img src={imdb} alt="" />
-                      {film.vote_count}
-                    </div>
-                    <div className="tomato">
-                      <img src={tomato} alt="" />
-                      {film.vote_average}
-                    </div>
-                  </div>
-                </div>
+                <CardMovie film={film} />
               </SwiperSlide>
             ))}
         </Swiper>
