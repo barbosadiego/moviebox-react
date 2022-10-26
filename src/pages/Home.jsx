@@ -3,6 +3,7 @@ import React from 'react';
 //Components
 import Poster from '../components/Poster';
 import SliderList from '../components/SliderList';
+import SliderVideos from '../components/SliderVideos';
 
 //env
 const baseURL = import.meta.env.VITE_API_BASE_URL;
@@ -22,6 +23,7 @@ const Home = () => {
         section="latest-movie"
         title="New Arrival"
       />
+      <SliderVideos />
     </main>
   );
 };

@@ -1,0 +1,19 @@
+@use '../Functions.scss' as f;
+@use '../Colors.scss' as c;
+
+.videos {
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 44px;
+
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      color: c.$rose;
+    }
+  }
+}

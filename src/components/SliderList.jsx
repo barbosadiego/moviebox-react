@@ -11,7 +11,6 @@ import 'swiper/scss/navigation';
 import { Navigation } from 'swiper';
 
 //components
-
 import arrow from '../img/arrow-icon.svg';
 
 //css
@@ -62,6 +61,24 @@ const SliderList = ({ url, section, title }) => {
           modules={[Navigation]}
           grabCursor={true}
           className="mySwiper"
+          breakpoints={{
+            320: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            640: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 4,
+              spaceBetween: 40,
+            },
+            1024: {
+              slidesPerView: 5,
+              spaceBetween: 50,
+            },
+          }}
         >
           {films.length > 0 &&
             films.map((film) => (

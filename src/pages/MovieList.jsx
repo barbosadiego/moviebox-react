@@ -6,7 +6,7 @@ const MovieList = (props) => {
 
   return (
     <div>
-      <h1>{category}</h1>
+      <h1>{category.replace('-', ' ')}</h1>
     </div>
   );
 };
