@@ -11,6 +11,5 @@ export async function getMoviesId() {
 export async function getVideos(id) {
   const data = await fetch(`${baseURL}movie/${id}/videos?${apiKey}`);
   const res = await data.json();
-  // let movies = res.results.map((item) => item.key);
   return res;
 }

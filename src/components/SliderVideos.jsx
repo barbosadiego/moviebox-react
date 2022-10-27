@@ -21,7 +21,6 @@ import { Link } from 'react-router-dom';
 //env
 const baseURL = import.meta.env.VITE_API_BASE_URL;
 const apiKey = import.meta.env.VITE_API_KEY;
-console.clear();
 
 const SliderVideos = () => {
   const [videos, setVideos] = useState([]);
@@ -33,11 +32,9 @@ const SliderVideos = () => {
 
   useEffect(() => {
     getVideos(idMovies[0]).then((res) =>
-      setVideos(res.results.map((item) => item.key)),
+      setVideos(res.results.map((item) => item)),
     );
   }, [idMovies]);
-
-  console.log(videos);
 
   return (
     <section className="container videos">
@@ -51,8 +48,7 @@ const SliderVideos = () => {
         </Link>
       </div>
       <Swiper
-        // slidesPerView={4}
-        spaceBetween={48}
+        spaceBetween={0}
         loop={true}
         loopFillGroupWithBlank={true}
         navigation={true}
@@ -62,7 +58,7 @@ const SliderVideos = () => {
         breakpoints={{
           625: {
             slidesPerView: 1,
-            spaceBetween: 10,
+            spaceBetween: 0,
           },
           768: {
             slidesPerView: 2,
@@ -70,22 +66,31 @@ const SliderVideos = () => {
           },
           1024: {
             slidesPerView: 3,
+            spaceBetween: 40,
+          },
+          1200: {
+            slidesPerView: 4,
             spaceBetween: 48,
           },
         }}
       >
         {videos.length > 0 &&
           videos.map((item) => (
-            <SwiperSlide>
-              <iframe
-                width="auto"
-                height="auto"
-                src={`https://www.youtube.com/embed/${item}`}
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
+            <SwiperSlide key={item.key}>
+              <div className="card-video">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={`https://www.youtube.com/embed/${item.key}`}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+                <div className="title">
+                  <h3>{item.name}</h3>
+                </div>
+              </div>
             </SwiperSlide>
           ))}
       </Swiper>
