@@ -1,0 +1,35 @@
+@use '../Colors.scss' as c;
+@use '../Functions.scss' as f;
+
+.footer {
+  text-align: center;
+  padding-bottom: 62px;
+
+  &__social.flex {
+    justify-content: center;
+    gap: 48px;
+
+    & > div {
+      cursor: pointer;
+    }
+  }
+
+  &__links {
+    margin: 36px 0;
+    .flex {
+      justify-content: center;
+      gap: 48px;
+    }
+
+    a {
+      color: black;
+      font-weight: 700;
+      font-size: f.rem(18);
+      line-height: f.rem(24);
+    }
+  }
+
+  &__credits {
+    color: c.$gray-500;
+  }
+}
