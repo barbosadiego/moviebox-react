@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Movie from './pages/MoviePage';
+import MoviePage from './pages/MoviePage';
 import MovieList from './pages/MovieList';
 
 //css
@@ -18,7 +18,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies/:category" element={<MovieList />} />
-        <Route path="/movie/:id" element={<Movie />} />
+        <Route path="/movie/:id" element={<MoviePage />} />
       </Routes>
       <Footer />
     </>

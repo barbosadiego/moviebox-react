@@ -83,7 +83,9 @@ const SliderList = ({ url, section, title }) => {
           {films.length > 0 &&
             films.map((film) => (
               <SwiperSlide key={film.id}>
-                <CardMovie film={film} />
+                <Link to={`movie/${film.id}`}>
+                  <CardMovie film={film} />
+                </Link>
               </SwiperSlide>
             ))}
         </Swiper>
