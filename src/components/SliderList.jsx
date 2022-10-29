@@ -12,6 +12,7 @@ import { Navigation } from 'swiper';
 
 //components
 import arrow from '../img/arrow-icon.svg';
+import Loading from '../components/Loading';
 
 //css
 import './SliderList.scss';
@@ -28,8 +29,10 @@ const SliderList = ({ url, section, title }) => {
 
   const getFilms = async (url) => {
     const data = await fetch(url);
-    const res = await data.json();
-    setFilms(res.results);
+    if (data.ok) {
+      const res = await data.json();
+      setFilms(res.results);
+    }
   };
 
   useEffect(() => {
@@ -52,43 +55,46 @@ const SliderList = ({ url, section, title }) => {
             </span>
           </Link>
         </div>
-        <Swiper
-          slidesPerView={4}
-          spaceBetween={80}
-          loop={true}
-          loopFillGroupWithBlank={true}
-          navigation={true}
-          modules={[Navigation]}
-          grabCursor={true}
-          className="mySwiper"
-          breakpoints={{
-            320: {
-              slidesPerView: 2,
-              spaceBetween: 10,
-            },
-            640: {
-              slidesPerView: 3,
-              spaceBetween: 20,
-            },
-            768: {
-              slidesPerView: 4,
-              spaceBetween: 40,
-            },
-            1024: {
-              slidesPerView: 5,
-              spaceBetween: 50,
-            },
-          }}
-        >
-          {films.length > 0 &&
-            films.map((film) => (
-              <SwiperSlide key={film.id}>
-                <Link to={`movie/${film.id}`}>
-                  <CardMovie film={film} />
-                </Link>
-              </SwiperSlide>
-            ))}
-        </Swiper>
+        {films.length === 0 && <Loading />}
+        {films.length > 0 && (
+          <Swiper
+            slidesPerView={4}
+            spaceBetween={80}
+            loop={true}
+            loopFillGroupWithBlank={true}
+            navigation={true}
+            modules={[Navigation]}
+            grabCursor={true}
+            className="mySwiper"
+            breakpoints={{
+              320: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              640: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 4,
+                spaceBetween: 40,
+              },
+              1024: {
+                slidesPerView: 5,
+                spaceBetween: 50,
+              },
+            }}
+          >
+            {films.length > 0 &&
+              films.map((film) => (
+                <SwiperSlide key={film.id}>
+                  <Link to={`movie/${film.id}`}>
+                    <CardMovie film={film} />
+                  </Link>
+                </SwiperSlide>
+              ))}
+          </Swiper>
+        )}
       </div>
     </section>
   );

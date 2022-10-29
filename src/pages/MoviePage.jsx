@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 //router
 import { useParams } from 'react-router-dom';
+import Loading from '../components/Loading';
 
 //css
 import './MoviePage.scss';
@@ -49,6 +50,7 @@ const MoviePage = () => {
         <div className="img">
           <img src={`${imgURL}w1280${movie.backdrop_path}`} alt="" />
         </div>
+        {movie.length === 0 && <Loading />}
         {movie && (
           <div className="container info">
             <h1>{movie.original_title}</h1>
