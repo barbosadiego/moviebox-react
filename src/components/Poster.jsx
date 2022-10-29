@@ -48,7 +48,7 @@ const Poster = () => {
         className="mySwiper"
         loop={false}
         grabCursor={true}
-        // autoplay={{ delay: 5000 }}
+        autoplay={{ delay: 5000 }}
       >
         {popularFilms.length > 0 &&
           popularFilms.map((film) => (
