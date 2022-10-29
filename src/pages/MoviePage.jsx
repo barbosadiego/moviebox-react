@@ -26,7 +26,11 @@ const MoviePage = () => {
     getFilm();
   }, []);
 
-  // console.log(movie);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  }, []);
 
   function formatNumber(number) {
     return Number(number).toLocaleString('en-US', {
