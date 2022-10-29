@@ -13,3 +13,9 @@ export async function getVideos(id) {
   const res = await data.json();
   return res;
 }
+
+export async function getFilms(url) {
+  const data = await fetch(url);
+  const res = await data.json();
+  return res;
+}

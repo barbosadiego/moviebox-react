@@ -1,0 +1,22 @@
+.category {
+  background-image: linear-gradient(180deg, #000 80px, transparent 80px);
+  padding: 100px 0px 80px;
+  flex: 1;
+
+  h1 {
+    margin: 2rem 0;
+    text-transform: capitalize;
+    text-align: center;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    justify-items: center;
+    gap: 1rem;
+    @media screen and (max-width: 700px) {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+      justify-content: center;
+    }
+  }
+}

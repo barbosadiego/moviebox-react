@@ -15,13 +15,13 @@ const Home = () => {
       <Poster />
       <SliderList
         url={`${baseURL}movie/top_rated?${apiKey}`}
-        section="featured-movie"
-        title="Featured Movie"
+        section="top-rated"
+        title="Top Rated"
       />
       <SliderList
         url={`${baseURL}movie/now_playing?${apiKey}`}
-        section="latest-movie"
-        title="New Arrival"
+        section="now-playing"
+        title="Now Playing"
       />
       <SliderVideos />
     </main>

@@ -3,14 +3,14 @@
 
 .footer {
   text-align: center;
-  padding-bottom: 62px;
+  padding-bottom: 40px;
   @media screen and (max-width: 500px) {
     padding-bottom: 1rem;
   }
 
   &__social.flex {
     justify-content: center;
-    gap: 48px;
+    gap: 28px;
 
     & > div {
       cursor: pointer;
