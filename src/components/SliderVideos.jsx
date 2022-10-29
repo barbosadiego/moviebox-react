@@ -40,12 +40,6 @@ const SliderVideos = () => {
     <section className="container videos">
       <div className="title">
         <h1>Exclusive Videos</h1>
-        <Link className="link" to={`/`}>
-          See more{' '}
-          <span>
-            <img src={arrow} alt="" />
-          </span>
-        </Link>
       </div>
       <Swiper
         spaceBetween={0}
