@@ -81,18 +81,5 @@
         gap: 0.5rem;
       }
     }
-
-    .btn {
-      background-color: c.$rose;
-      border: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 16px;
-      color: c.$white;
-      border-radius: 6px;
-      cursor: pointer;
-    }
   }
 }

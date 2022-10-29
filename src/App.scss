@@ -1,3 +1,5 @@
+@use './Colors.scss' as c;
+
 * {
   box-sizing: border-box;
   font-family: 'DM Sans', sans-serif;
@@ -49,6 +51,14 @@ main {
   }
 }
 
+::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: c.$rose;
+}
+
 .flex {
   display: flex;
   justify-content: space-between;
@@ -57,4 +67,17 @@ main {
 
 .column {
   flex-direction: column;
+}
+
+.btn {
+  background-color: c.$rose;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  color: c.$white;
+  border-radius: 6px;
+  cursor: pointer;
 }

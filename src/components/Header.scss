@@ -36,6 +36,11 @@
 
   &__menu {
     gap: 27px;
+    @media screen and (max-width: 500px) {
+      h3 {
+        display: none;
+      }
+    }
 
     .btn {
       width: 36px;

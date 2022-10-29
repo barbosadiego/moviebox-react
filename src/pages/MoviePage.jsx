@@ -26,27 +26,33 @@ const MoviePage = () => {
     getFilm();
   }, []);
 
-  console.log(movie);
+  // console.log(movie);
 
   function formatNumber(number) {
-    return number.toLocaleString('en-US', {
+    return Number(number).toLocaleString('en-US', {
       style: 'currency',
       currency: 'USD',
     });
   }
 
+  function formatDate(date) {
+    return String(date).substring(0, 4);
+  }
+
   return (
     <main>
-      <section className="container movie-page">
+      <section className="movie-page">
+        <div className="img">
+          <img src={`${imgURL}w1280${movie.backdrop_path}`} alt="" />
+        </div>
         {movie && (
-          <div>
-            <img src={`${imgURL}original${movie.backdrop_path}`} alt="" />
+          <div className="container info">
             <h1>{movie.original_title}</h1>
-            <p>Release: {movie.release_date}</p>
-            <p>Bugde: US$ {movie.budget} </p>
-            <p>{movie.overview}</p>
+            <p>Release: {formatDate(movie.release_date)}</p>
+            <p>Bugdet: {formatNumber(movie.budget)} </p>
+            <p className="overview">{movie.overview}</p>
             {movie.homepage && (
-              <button>
+              <button className="btn">
                 <a href={movie.homepage} target="_blank">
                   Homepage
                 </a>

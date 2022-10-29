@@ -4,6 +4,9 @@
 .footer {
   text-align: center;
   padding-bottom: 62px;
+  @media screen and (max-width: 500px) {
+    padding-bottom: 1rem;
+  }
 
   &__social.flex {
     justify-content: center;
@@ -19,6 +22,10 @@
     .flex {
       justify-content: center;
       gap: 48px;
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
     }
 
     a {
