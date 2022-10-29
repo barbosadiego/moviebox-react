@@ -1,0 +1,24 @@
+@use '../Colors.scss' as c;
+
+.loading {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  z-index: 20;
+
+  & > div {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 5px solid c.$rose;
+    border-top-color: transparent;
+    animation: turn 1s infinite;
+  }
+}
+
+@keyframes turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
