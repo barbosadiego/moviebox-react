@@ -19,7 +19,7 @@ function Header() {
     <header className="header">
       <nav className="container flex">
         <div>
-          <Link to="/">
+          <Link to="/moviebox-react">
             <img src={Logo} alt="" />
           </Link>
         </div>
