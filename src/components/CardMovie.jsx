@@ -16,7 +16,11 @@ const CardMovie = ({ film }) => {
   return (
     <div className="card">
       <div className="img">
-        <img src={`${imgURL}w500/${film.poster_path}`} alt="" />
+        {film.poster_path ? (
+          <img src={`${imgURL}w500/${film.poster_path}`} alt={film.title} />
+        ) : (
+          <img src="https://via.placeholder.com/250x375.png?text=No+Image" />
+        )}
       </div>
       <span>{film.release_date.substring(0, 4)}</span>
       <h3>{film.title}</h3>

@@ -1,0 +1,28 @@
+@use '../Colors.scss' as c;
+@use '../Functions.scss' as f;
+
+.search {
+  flex: 1;
+  padding: 80px 0;
+  background-image: linear-gradient(180deg, #000 80px, transparent 80px);
+
+  h1 {
+    text-align: center;
+    margin: 2rem;
+    text-transform: capitalize;
+  }
+
+  &__results {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px, 250px));
+    justify-content: center;
+    gap: 1rem;
+    @media screen and (max-width: 890px) {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 200px));
+    }
+  }
+
+  &__error {
+    text-align: center;
+  }
+}
