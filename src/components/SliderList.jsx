@@ -48,7 +48,10 @@ const SliderList = ({ url, section, title }) => {
       <div className="slider-list">
         <div className="title">
           <h1>{title}</h1>
-          <Link className="link" to={`/movies/${urlTitle(title)}`}>
+          <Link
+            className="link"
+            to={`/moviebox-react/movies/${urlTitle(title)}`}
+          >
             See more{' '}
             <span>
               <img src={arrow} alt="" />
