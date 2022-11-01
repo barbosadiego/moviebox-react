@@ -10,7 +10,7 @@ function Header() {
 
   function keyDown(e) {
     if (e.key === 'Enter') {
-      navigate(`/search?q=${searchInput}`);
+      navigate(`/moviebox-react/search?q=${searchInput}`);
       setSearchImput('');
     }
   }

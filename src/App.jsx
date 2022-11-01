@@ -17,10 +17,13 @@ const App = () => {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/movies/:category" element={<MovieList />} />
-        <Route path="/movie/:id" element={<MoviePage />} />
+        <Route path="/moviebox-react" element={<Home />} />
+        <Route path="/moviebox-react/search" element={<Search />} />
+        <Route
+          path="/moviebox-react/movies/:category"
+          element={<MovieList />}
+        />
+        <Route path="/moviebox-react/movie/:id" element={<MoviePage />} />
       </Routes>
       <Footer />
     </>
