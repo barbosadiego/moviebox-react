@@ -35,7 +35,7 @@ const Search = () => {
         {films.length > 0 && (
           <div className="search__results">
             {films.map((film) => (
-              <Link key={film.id} to={`/movie/${film.id}`}>
+              <Link key={film.id} to={`/moviebox-react/movie/${film.id}`}>
                 <CardMovie film={film} />
               </Link>
             ))}
