@@ -32,7 +32,7 @@ const MovieList = () => {
         {films.length > 0 && (
           <div className="grid">
             {films.map((film) => (
-              <Link to={`/movie/${film.id}`} key={film.id}>
+              <Link to={`/moviebox-react/movie/${film.id}`} key={film.id}>
                 <div className="grid__card">
                   <img src={`${imgURL}w300${film.poster_path}`} alt="" />
                   <div>{film.title}</div>
